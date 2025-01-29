@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { clearError, setCredentials, setError } from "../../store/auth/authSlice";
+import { clearError, setError } from "../../store/auth/authSlice";
 
 interface SignupFormValues {
   name: string;
@@ -36,6 +36,7 @@ const Signup: React.FC = () => {
     try {
     //   const result = await signup(values).unwrap();
     //   dispatch(setCredentials(result));
+    console.log("values", values);
       navigate("/dashboard");
     } catch (err) {
       dispatch(setError("Signup failed. Please try again."));
